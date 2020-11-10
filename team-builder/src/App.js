@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
+
 import './App.css';
 
+import MemberCards from './components/MemberCards';
+import Form from './components/Form';
+
+const defaultMemberList = [
+  {
+    id : "0",
+    name : "Marek",
+    email : "marek@mymail.com",
+    role : "etc",
+  },
+  {
+    id : "1",
+    name : "Nest",
+    email : "Nest@mymail.com",
+    role : "etc",
+  },
+];
+
 function App() {
+
+  const [memebersList, setMemebersList] = useState(defaultMemberList);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form />
+      <MemberCards memebersList={memebersList}/>
     </div>
   );
 }

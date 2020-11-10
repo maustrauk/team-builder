@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.member-form {
+}
+
+.member-labels {
+  border: 1px solid red;
+}
+
+.memeber {
+  text-align: left;
+  width: 25%;
+}
