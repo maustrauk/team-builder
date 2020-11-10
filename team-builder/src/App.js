@@ -7,27 +7,50 @@ import Form from './components/Form';
 
 const defaultMemberList = [
   {
-    id : "0",
     name : "Marek",
     email : "marek@mymail.com",
     role : "etc",
   },
   {
-    id : "1",
     name : "Nest",
     email : "Nest@mymail.com",
     role : "etc",
   },
 ];
 
+const defaultFormValues = {
+  name : "",
+  email : "",
+  role : "",
+};
+
 function App() {
 
   const [memebersList, setMemebersList] = useState(defaultMemberList);
+  const [formValues, setFormValue] = useState(defaultFormValues);
+
+  const updateForm = (inputName, inputValue) => {
+    setFormValue({
+      ...formValues,
+      [inputName]: inputValue,
+    });
+  };
+
+  const submitForm = () => {
+    const newMember = {
+      name: formValues.name.trim(),
+      email: formValues.email.trim(),
+      role: formValues.role,
+    };
+
+    setMemebersList([...memebersList, newMember]);
+  }
 
   return (
     <div className="App">
-      <Form />
+      <Form values={formValues} update={updateForm} submit ={submitForm}/>
       <MemberCards memebersList={memebersList}/>
+      {console.log("Members:",memebersList)}
     </div>
   );
 }

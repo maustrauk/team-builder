@@ -3,12 +3,20 @@ import React from 'react';
 
 const Form = props => {
 
-    const onChange = (evt) => {
+    const {values, update, submit} = props;
 
+    const onChange = (evt) => {
+        const { name, value } = evt.target;
+        update(name, value);
+    }
+
+    const onSubmit = (evt) => {
+        evt.preventDefault();
+        submit();
     }
 
     return (
-        <div className="member-form">
+        <div className="member-form" onSubmit={onSubmit}>
             <form>
                 <div className="member-labels">
                     <div>
@@ -17,7 +25,7 @@ const Form = props => {
                             <input 
                                 name = "name"
                                 type = "text"
-                                value = "name"
+                                value = {values.name}
                                 onChange = {onChange}
                                 maxLength = "30"
                             ></input>
@@ -29,7 +37,7 @@ const Form = props => {
                             <input 
                                 name = "email"
                                 type = "email"
-                                value = "email"
+                                value = {values.email}
                                 onChange = {onChange}
                                 maxLength = "30"
                             ></input>
@@ -38,7 +46,7 @@ const Form = props => {
                     <div>
                         <label>
                             Role
-                            <select name="role" value="role" onChange={onChange}>
+                            <select name="role" value={values.role} onChange={onChange}>
                                 <option value="other">Other</option>
                                 <option value="backend_engineer">Backend Engineer</option>
                                 <option value="frontend_engineer">Frontend Engineer</option>
@@ -48,7 +56,7 @@ const Form = props => {
                         </label>
                     </div>
                 </div>
-                <div>
+                <div className ="submit">
                     <button>submit</button>
                 </div>
                 

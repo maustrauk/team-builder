@@ -5,7 +5,7 @@ const MemberCard = props => {
     const {name, email, role} = props;
     return (
         <div className="memeber">
-            <h1>{name}</h1>
+            <h2>{name}</h2>
             <p>Email: {email}</p>
             <p>Role: {role}</p>
         </div>
