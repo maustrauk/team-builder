@@ -19,9 +19,10 @@ const Form = props => {
         <div className="member-form" onSubmit={onSubmit}>
             <form>
                 <div className="member-labels">
-                    <div>
+                    <div className="member-label">
                         <label>
                             Name
+                            <br></br>
                             <input 
                                 name = "name"
                                 type = "text"
@@ -31,9 +32,10 @@ const Form = props => {
                             ></input>
                         </label>
                     </div>
-                    <div>
+                    <div className="member-label">
                         <label>
                             Email
+                            <br></br>
                             <input 
                                 name = "email"
                                 type = "email"
@@ -43,9 +45,10 @@ const Form = props => {
                             ></input>
                         </label>
                     </div>
-                    <div>
+                    <div className="member-label">
                         <label>
                             Role
+                            <br></br>
                             <select name="role" value={values.role} onChange={onChange}>
                                 <option value="other">Other</option>
                                 <option value="backend_engineer">Backend Engineer</option>

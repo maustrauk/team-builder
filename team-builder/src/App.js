@@ -48,8 +48,8 @@ function App() {
 
   return (
     <div className="App">
-      <Form values={formValues} update={updateForm} submit ={submitForm}/>
       <MemberCards memebersList={memebersList}/>
+      <Form values={formValues} update={updateForm} submit ={submitForm}/>
       {console.log("Members:",memebersList)}
     </div>
   );
