@@ -28,6 +28,7 @@ function App() {
 
   const [memebersList, setMemebersList] = useState(defaultMemberList);
   const [formValues, setFormValue] = useState(defaultFormValues);
+  const [memberToEdit, setMemberToEdit] = useState({});
 
   const updateForm = (inputName, inputValue) => {
     setFormValue({
@@ -46,11 +47,20 @@ function App() {
     setMemebersList([...memebersList, newMember]);
   }
 
+  const memberEdit = (name, email, role) => {
+    const memberForEdit = {
+      name: name,
+      email: email,
+      role: role
+    }
+
+    setMemberToEdit(memberForEdit);
+  }
+
   return (
     <div className="App">
-      <MemberCards memebersList={memebersList}/>
+      <MemberCards memebersList={memebersList} memberEdit={memberEdit}/>
       <Form values={formValues} update={updateForm} submit ={submitForm}/>
-      {console.log("Members:",memebersList)}
     </div>
   );
 }
